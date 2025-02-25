@@ -1,0 +1,9 @@
+#
+server:
+  port: 20001
+
+main:
+  allow-bean-definition-overriding: true
+
+jmx:
+  enabled: false

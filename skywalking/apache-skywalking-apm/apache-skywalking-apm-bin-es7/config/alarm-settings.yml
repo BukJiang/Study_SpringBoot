@@ -1,0 +1,106 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Sample alarm rules.
+rules:
+
+  # 平均响应时间规则 (threshold: 毫秒)
+  service_resp_time_rule:
+    metrics-name: service_resp_time
+    op: ">="
+    threshold: 300
+    period: 10
+    count: 2
+    silence-period: 0
+    message: '[service_resp_time]'
+
+  # 服务成功率规则 (threshold: 10000表示为100%)
+  service_sla_rule:
+    metrics-name: service_sla
+    op: "<="
+    threshold: 10000
+    period: 1
+    count: 1
+    silence-period: 0
+    message: '[service_sla]'
+
+  # 服务响应时间百分比规则 (threshold: 毫秒)
+  service_resp_time_percentile_rule:
+    metrics-name: service_percentile
+    op: ">="
+    threshold: 300,300,300,300,300
+    period: 1
+    count: 1
+    silence-period: 0
+    message: '[service_percentile]'
+
+  # 服务实例响应时间规则 (threshold: 毫秒)
+  service_instance_resp_time_rule:
+    metrics-name: service_instance_resp_time
+    op: ">="
+    threshold: 300
+    period: 1
+    count: 1
+    silence-period: 0
+    message: '[service_instance_resp_time]'
+
+  # 端点关系响应时间规则 (threshold: 毫秒)
+  endpoint_relation_resp_time_rule:
+    metrics-name: endpoint_relation_resp_time
+    threshold: 300
+    op: ">="
+    period: 1
+    count: 1
+    silence-period: 0
+    message: '[endpoint_relation_resp_time]'
+
+  # 端点平均规则
+  endpoint_avg_rule:
+    metrics-name: endpoint_avg
+    op: ">"
+    threshold: 1000
+    period: 1
+    count: 1
+    silence-period: 0
+    message: '[endpoint_avg]'
+
+  # 数据库
+  database_access_resp_time_rule:
+    metrics-name: database_access_resp_time
+    threshold: 1000
+    op: ">"
+    period: 10
+    count: 2
+    message: Response time of database access {name} is more than 1000ms in 2 minutes of last 10 minutes
+
+
+
+# web
+webhooks:
+  - http://localhost:20001/alarm/webHook
+
+# 钉钉
+dingtalkHooks:
+  textTemplate: |-
+    {
+      "msgtype": "text",
+      "text": {
+        "content": "[TEST] \n Apache SkyWalking Alarm: \n %s"
+      }
+    }
+  webhooks:
+    - url: https://oapi.dingtalk.com/robot/send?access_token=0cddecedd823463c73d79248979129d617b822fa9ae3dc34a64a33f518ea09cd
+      secret: pdD5OlFSXshP8sL86ypqXkistM1RNT2LpQR7SBw5wnRxqVM9XHfywNsan5Bo3DO6

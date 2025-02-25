@@ -1,0 +1,26 @@
+#
+server:
+  port: 20001
+
+#
+value:
+  param1: value.param1
+  param1_2: value.${value.param1}_2
+  randomString: value.randomString.${random.value}
+  randomUUID: value.randomUUID.${random.uuid}
+  randomInt1: value.randomInt1.${random.int}
+  randomInt2: value.randomInt2.${random.int(0,10)}
+  randomLong1: value.randomLong1.${random.long}
+  randomLong2: value.randomLong2.${random.long(0,10)}
+
+#
+my-properties:
+  paramString: my-properties.paramString
+  paramStringList1:
+    - my-properties.paramStringList1[0]
+    - my-properties.paramStringList1[1]
+  paramStringList2: my-properties.paramStringList2[0], my-properties.paramStringList2[1]
+  paramMap:
+    key1: my-properties.paramMap.key1
+    key2: my-properties.paramMap.key2
+    key3: my-properties.paramMap.key3

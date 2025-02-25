@@ -1,0 +1,22 @@
+#
+server:
+  port: 20001
+
+#
+spring:
+  elasticsearch:
+    rest:
+      #实例使用的列表(逗号分隔)
+      uris: 192.168.26.252:9200
+      #用户名
+      username: elastic
+      #密码
+      password: elastic
+      #链接超时时间
+      connection-timeout: 1s
+      #读取超时时间
+      read-timeout: 30s
+
+logging:
+  level:
+    org.springframework.data.elasticsearch.client.WIRE: trace

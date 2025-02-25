@@ -1,0 +1,55 @@
+# [moreMongodb]
+
+spring:
+  data:
+    mongodb:
+      #
+      db1:
+        #地址
+        host: 127.0.0.1
+        #端口
+        port: 27017
+        #认证数据库名称
+        authentication-database: admin
+        #数据库名称
+        database: test_db
+        #      #用户名
+        #      username:
+        #      #密码
+        #      password:
+
+        #      #GridFS数据库名称
+        #      grid-fs-database:
+        #      #群集的必需副本集名称，无法使用URI设置
+        #      replica-set-name:
+        #      #字段名策略
+        #      field-naming-strategy:
+        #      #是否启用自动索引创建
+        #      auto-index-creation: false
+        #      #将UUID转换为BSON二进制值时要使用的表示形式
+        #      uuid-representation: java_legacy
+      #
+      db2:
+        #地址
+        host: 127.0.0.1
+        #端口
+        port: 27017
+        #认证数据库名称
+        authentication-database: admin
+        #数据库名称
+        database: test_db2
+        #      #用户名
+        #      username:
+        #      #密码
+        #      password:
+
+        #      #GridFS数据库名称
+        #      grid-fs-database:
+        #      #群集的必需副本集名称，无法使用URI设置
+        #      replica-set-name:
+        #      #字段名策略
+        #      field-naming-strategy:
+        #      #是否启用自动索引创建
+        #      auto-index-creation: false
+        #      #将UUID转换为BSON二进制值时要使用的表示形式
+        #      uuid-representation: java_legacy

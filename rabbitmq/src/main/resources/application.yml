@@ -1,0 +1,14 @@
+#
+server:
+  port: 20001
+
+### [RabbitMQ]
+spring:
+  rabbitmq:
+    #服务器地址
+    host: 127.0.0.1
+    #端口号
+    port: 5672
+    #账号密码
+    username: guest
+    password: guest

@@ -1,0 +1,11 @@
+#
+server:
+  port: 20001
+
+#
+spring:
+  profiles:
+    include:
+      - redis
+      - moreRedis
+      - session

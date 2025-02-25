@@ -1,0 +1,20 @@
+#
+server:
+  port: 20001
+
+#
+spring:
+  servlet:
+    multipart:
+      #是否支持文件上传
+      enabled: true
+      #文件大小阈值，大于这个阈值时将写入到磁盘，否则存在内存中，默认为0
+      file-size-threshold: 0
+      #文件上传临时保存位置，没有写入最终保存位置时存放的位置
+      location: ./upload/temporary
+      #最大支持单文件大小
+      max-file-size: 10MB
+      #最大支持多文件大小
+      max-request-size: 100MB
+      #是否延迟解析，相当于懒加载
+      resolve-lazily: false

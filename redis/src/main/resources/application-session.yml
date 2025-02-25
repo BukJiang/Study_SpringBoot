@@ -1,0 +1,6 @@
+# [Session]
+
+spring:
+  session:
+    #存储类型
+    store-type: redis
